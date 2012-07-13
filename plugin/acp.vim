@@ -29,6 +29,7 @@ function s:makeDefaultBehavior()
         \   'html'   : [],
         \   'xhtml'  : [],
         \   'css'    : [],
+        \   'javascript'    : [],
         \ }
   "---------------------------------------------------------------------------
   if !empty(g:acp_behaviorUserDefinedFunction) &&
@@ -111,6 +112,12 @@ function s:makeDefaultBehavior()
         \   'repeat'  : 0,
         \ })
   "---------------------------------------------------------------------------
+  call add(behavs.javascript, {
+        \   'command' : "\<C-x>\<C-o>",
+        \   'meets'   : 'acp#meetsForJavaScriptOmni',
+        \   'repeat'  : 0,
+        \ })
+  "---------------------------------------------------------------------------
   return behavs
 endfunction
 
@@ -139,6 +146,8 @@ call l9#defineVariableDefault('g:acp_behaviorXmlOmniLength', 0)
 call l9#defineVariableDefault('g:acp_behaviorHtmlOmniLength', 0)
 call l9#defineVariableDefault('g:acp_behaviorCssOmniPropertyLength', 1)
 call l9#defineVariableDefault('g:acp_behaviorCssOmniValueLength', 0)
+call l9#defineVariableDefault('g:acp_behaviorJavaScriptOmniMethodLength', 1)
+call l9#defineVariableDefault('g:acp_behaviorJavaScriptOmniSymbolLength', 0)
 call l9#defineVariableDefault('g:acp_behavior', {})
 "-----------------------------------------------------------------------------
 call extend(g:acp_behavior, s:makeDefaultBehavior(), 'keep')
