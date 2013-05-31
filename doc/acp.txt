@@ -266,6 +266,13 @@ OPTIONS                                                          *acp-options*
         attempt CSS omni-completion for values. If negative value, this
         completion will be never attempted.
 
+                                         g:acp_behaviorJavaScriptOmniLength
+  let g:acp_behaviorJavaScriptOmniLength = 0
+
+        Length of keyword characters before the cursor, which are needed to
+        attempt javascript omni-completion. If negative value, this completion
+        will be never attempted.
+
                                                            *g:acp_behavior*  >
   let g:acp_behavior = {}
 <

@@ -159,23 +159,11 @@ function acp#meetsForCssOmni(context)
   endif
   return 0
 endfunction
-"
+
 "
 function acp#meetsForJavaScriptOmni(context)
-  if !has('ruby')
-    return 0
-  endif
-  if g:acp_behaviorJavaScriptOmniMethodLength >= 0 &&
-        \ a:context =~ '[^. \t]\(\.\|::\)\k\{' .
-        \              g:acp_behaviorJavaScriptOmniMethodLength . ',}$'
-    return 1
-  endif
-  if g:acp_behaviorJavaScriptOmniSymbolLength >= 0 &&
-        \ a:context =~ '\(^\|[^:]\):\k\{' .
-        \              g:acp_behaviorJavaScriptOmniSymbolLength . ',}$'
-    return 1
-  endif
-  return 0
+  return g:acp_behaviorJavaScriptOmniLength >= 0 &&
+        \ a:context =~ '\k\.\k\{' . g:acp_behaviorJavaScriptOmniLength . ',}$'
 endfunction
 
 "
